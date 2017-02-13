@@ -14,7 +14,4 @@
         <one-to-one name="usuario" cascade="all" />
         <one-to-one name="subCategoria" cascade="all" />         
     </class>
-    
-   
-    
 </hibernate-mapping>
