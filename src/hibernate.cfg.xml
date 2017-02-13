@@ -1,0 +1,35 @@
+<?xml version="1.0"  ?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+ <hibernate-configuration>
+   <session-factory>
+     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+     <property name="connection.url">jdbc:mysql://localhost/wallapop2</property>
+     <property name="connection.username">root</property>
+     <property name="connection.password"></property>
+     <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+     <property name="hibernate.show_sql">true</property>
+
+     
+     <mapping class="Servicios.Usuario"/>
+ 	<mapping resource="Servicios/Usuario.hbm.xml"/>
+ 	
+      <mapping class="Servicios.Articulo"/>
+ 	<mapping resource="Servicios/Articulo.hbm.xml"/>
+ 	
+      <mapping class="Servicios.Categoria"/>
+ 	<mapping resource="Servicios/Categoria.hbm.xml"/>
+ 	
+ 	  <mapping class="Servicios.Imagenes"/>
+ 	<mapping resource="Servicios/Imagenes.hbm.xml"/>	
+	 	
+	 	 <mapping class="Servicios.Localidad"/>
+ 	<mapping resource="Servicios/Localidad.hbm.xml"/>
+ 	
+ 	 <mapping class="Servicios.Provincia"/>
+ 	<mapping resource="Servicios/Provincia.hbm.xml"/>
+ 	
+	 	 <mapping class="Servicios.SubCategoria"/>
+ 	<mapping resource="Servicios/SubCategoria.hbm.xml"/>
+ 	 	
+   </session-factory>
+ </hibernate-configuration>
