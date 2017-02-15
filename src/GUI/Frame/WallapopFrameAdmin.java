@@ -250,20 +250,20 @@ public class WallapopFrameAdmin extends JFrame{
 		panelPrincipal.updateUI();
 		
 		addArticulo();
-		panelInferior.repaint();
+		
 		this.validate();
 		//
 		panelInferior.removeAll();
 		panelInferior.updateUI();
 		paginated();
-		panelInferior.repaint();
+		
 		this.validate();
 		
 		menuBuscar.removeAll();
 		menuBuscar.updateUI();
 		
 		menuBuscar();
-		panelInferior.repaint();
+		
 		this.validate();
 		
 	}

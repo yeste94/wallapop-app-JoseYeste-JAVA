@@ -45,7 +45,7 @@ public class Main {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new WallapopFrameAdmin();
+		frame = new WallapopFrameLogin();
 		
 	}
 

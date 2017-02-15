@@ -7,8 +7,8 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 public class Conexion {
-	private  SessionFactory sessionFactory;
-	private  Session session;
+	private  static SessionFactory sessionFactory;
+	private static Session session;
 	
 	public Conexion(){
 		
