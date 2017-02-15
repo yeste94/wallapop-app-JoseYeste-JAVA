@@ -1,4 +1,4 @@
-package GUI;
+package GUI.Frame;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -27,11 +27,16 @@ import javax.swing.GroupLayout.Alignment;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import Componentes.*;
 import Servicios.Articulo;
 import Servicios.Categoria;
 import Servicios.Conexion;
-import Servicios.Usuario;
-
+import Servicios.*;
+/**
+ * 
+ * @author Jose Yeste
+ *	Panel principal para los usuarios que no sean admin. 
+ */
 public class WallapopFrame extends JFrame{
 
 	private JTextFieldBuscar txtBuscar;
@@ -41,6 +46,8 @@ public class WallapopFrame extends JFrame{
 	private JPanel panel;
 	private JPanel panel_1;
 	private Controler c=new Controler(this);
+	private JComboBox categorias;
+	
 	
 	private String queryCategoria="SELECT p FROM Categoria p";
 	private String queryArticulo="SELECT p FROM Articulo p";
@@ -50,25 +57,30 @@ public class WallapopFrame extends JFrame{
 		this.setBounds(100, 100, 900, 512);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//Conexion a hibernate
+		
 		Conexion con=new Conexion();
 		Session s=con.getSession();
 		
 		JMenuBar menuBar = new JMenuBar();
 		
 		this.setJMenuBar(menuBar);
-		JComboBox comboBox = new JComboBox();
-		comboBox.addItem("----Categorias----");
+		categorias = new JComboBox();
+		categorias.addItem("----Categorias----");
+		categorias.setActionCommand("categorias");
+		categorias.addActionListener(c);
+		
 		Query query = s.createQuery(this.queryCategoria);
 		//Listado de categorias		
+		
 		List<Categoria> listDatos = query.list();
 		System.out.println(listDatos.size());
 		 for (Categoria datos : listDatos) {
-		     comboBox.addItem(datos.getNombre());
+			 categorias.addItem(datos.getNombre());
 		 
 		 }
 		
 		
-		menuBar.add(comboBox);
+		menuBar.add(categorias);
 		
 		txtBuscar = new JTextFieldBuscar();
 		txtBuscar.setLocation(40, 40);
@@ -134,7 +146,7 @@ public class WallapopFrame extends JFrame{
 
 
 		
-		int numPag=(int) Math.floor((listDatos.size()/2));
+		int numPag=(int) Math.ceil( ( ( (double)listDatos.size())/2 ) );
 		for(int i=0;i<numPag;i++){
 			JButton button_1 = new JButton((i+1)+"");
 			button_1.setActionCommand((i)+"");
@@ -239,7 +251,7 @@ public class WallapopFrame extends JFrame{
 	}
 	
 	
-	JTextField getTxtBuscar() {
+	public JTextField getTxtBuscar() {
 		return txtBuscar;
 	}
 	public void setTxtBuscar(JTextFieldBuscar txtBuscar) {
@@ -269,6 +281,12 @@ public class WallapopFrame extends JFrame{
 	}
 	public void setQueryArticulo(String queryArticulo) {
 		this.queryArticulo = queryArticulo;
+	}
+	public JComboBox getCategorias() {
+		return categorias;
+	}
+	public void setCategorias(JComboBox categorias) {
+		this.categorias = categorias;
 	}
 	
 }

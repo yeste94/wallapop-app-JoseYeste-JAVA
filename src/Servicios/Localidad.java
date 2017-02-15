@@ -10,7 +10,9 @@ public class Localidad implements Serializable{
 	
 	public Localidad(){
 	}
-
+	public Localidad(String nombre){
+		this.nombre=nombre;
+	}
 	public Localidad(String nombre, Provincia provincia, Timestamp created_at, Timestamp update_at) {
 		super();
 		this.nombre = nombre;

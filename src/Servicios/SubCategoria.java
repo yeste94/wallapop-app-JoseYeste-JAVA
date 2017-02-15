@@ -14,7 +14,9 @@ public class SubCategoria implements Serializable{
 	public SubCategoria(){
 		
 	}
-
+	public SubCategoria(int id){
+		this.id=id;
+	}
 
 
 	public SubCategoria(int id, String nombre, String descripcion, Categoria categoria) {

@@ -1,14 +1,16 @@
-package GUI;
+package Componentes;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.accessibility.AccessibleIcon;
+import javax.swing.JOptionPane;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import GUI.Frame.*;
 import Servicios.Conexion;
 import Servicios.Usuario;
 
@@ -19,16 +21,13 @@ public class ControlerLogin implements ActionListener{
 	public ControlerLogin(WallapopFrameLogin frame){
 		this.frame=frame;
 	}
-	public ControlerLogin(){
-		
-	}
+
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
 		switch (arg0.getActionCommand()) {
 		case "btn_login":
-			System.out.println("Mandar a otra pagina");
 			Conexion con=new Conexion();
 			Session s=con.getSession();
 			String mail=frame.getMail().getText();
@@ -40,12 +39,22 @@ public class ControlerLogin implements ActionListener{
 			 List<Usuario> listDatos = query.list();
 			 System.out.println(listDatos.size());
 			if(listDatos.size()>0){
-				WallapopFrame frame = new WallapopFrame();
-				frame.setVisible(true);
-				this.frame.setVisible(false);
+				 for (Usuario datos : listDatos) {
+				     if(datos.isAdmin()){
+				    	 WallapopFrameAdmin frame = new WallapopFrameAdmin();
+				    	 frame.setVisible(true);
+				    	 this.frame.setVisible(false);
+				     }else{
+							WallapopFrame frame = new WallapopFrame();
+							frame.setVisible(true);
+							this.frame.setVisible(false);
+				     }
+				 }
 				System.out.println("Usuario correcto");
 			}else{
 				System.out.println("Usuario incorrecto");
+				
+				JOptionPane.showMessageDialog(frame, "Usuario o contraseña incorrecto.","Login", JOptionPane.INFORMATION_MESSAGE);
 			}
 
 			

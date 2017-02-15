@@ -5,7 +5,8 @@
         <id column="nombre" name="nombre"/>
 
     	
-   		<one-to-one name="provincia" cascade="all" />
+           <many-to-one name="provincia" class="Servicios.Provincia"
+             column="id_provincia" />
     </class>
    
 </hibernate-mapping>

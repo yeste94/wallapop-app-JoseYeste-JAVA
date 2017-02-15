@@ -11,7 +11,9 @@ public class Categoria implements Serializable{
 	
 	public Categoria(){
 	}
-
+	public Categoria(int id){
+		this.id=id;
+	}
 	public Categoria(int id, String nombre, String descripcion, Timestamp created_at, Timestamp update_at) {
 		super();
 		this.id = id;
@@ -43,6 +45,5 @@ public class Categoria implements Serializable{
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-
 	
 }

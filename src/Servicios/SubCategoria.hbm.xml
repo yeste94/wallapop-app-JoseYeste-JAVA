@@ -6,7 +6,9 @@
         <property name="nombre"/>
     	<property name="descripcion"/>
 
-   		<one-to-one name="categoria" cascade="all" />
+
+   		<many-to-one name="categoria" class="Servicios.Categoria"
+            column="id_categoria" />
     </class>
    
 </hibernate-mapping>

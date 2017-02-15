@@ -10,28 +10,29 @@ import javax.persistence.Table;
 
 
 public class Usuario implements Serializable{
-	
 	private String mail;
 	private String pass;
 	private String nick;
 	private String foto;
-
+	private boolean admin;
 	
 	public Usuario(){
 		
+	}
+	public Usuario(String mail){
+		this.mail=mail;
 	}
 	public Usuario(String mail,String pass){
 		this.mail=mail;
 		this.pass=pass;
 	}
-
-	public Usuario(String mail, String pass, String nick, String foto, Timestamp created_at, Timestamp updated_at) {
+	public Usuario(String mail, String pass, String nick, String foto, Timestamp created_at, Timestamp updated_at,boolean admin) {
 		super();
 		this.mail = mail;
 		this.pass = pass;
 		this.nick = nick;
 		this.foto = foto;
-
+		this.admin = admin;
 	}
 
 	public String getMail() {
@@ -65,6 +66,11 @@ public class Usuario implements Serializable{
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+	public boolean isAdmin() {
+		return admin;
+	}
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
 
-	
 }

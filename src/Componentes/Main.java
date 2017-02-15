@@ -1,4 +1,4 @@
-package GUI;
+package Componentes;
 
 import java.awt.EventQueue;
 
@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSpinner;
+
+import GUI.Frame.*;
+
 import java.awt.List;
 
 public class Main {
@@ -42,7 +45,7 @@ public class Main {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new WallapopFrameLogin();
+		frame = new WallapopFrameAdmin();
 		
 	}
 

@@ -1,4 +1,4 @@
-package GUI;
+package GUI.Frame;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -10,6 +10,8 @@ import javax.swing.SwingConstants;
 import Servicios.Usuario;
 
 import javax.swing.GroupLayout.Alignment;
+
+import Componentes.*;
 
 public class WallapopFrameLogin extends JFrame{
 	private JTextField mail;

@@ -4,14 +4,24 @@
     <class name="Servicios.Articulo">
         <id column="id" name="id"  type="integer"/>
         <property name="nombre"/>
+         <property name="descripcion"/>
         <property name="precio"/>
         <property name="envio"/>
         <property name="intercambio"/>
         <property name="negociable"/>
         <property name="venta"/> 
 
-        <one-to-one name="localidad" cascade="all" />
-        <one-to-one name="usuario" cascade="all" />
-        <one-to-one name="subCategoria" cascade="all" />         
+        
+        <many-to-one name="usuario" class="Servicios.Usuario"
+                column="id_usuario"   />
+                
+                
+        <many-to-one name="localidad" class="Servicios.Localidad"
+                column="id_localidad" />
+                
+        <many-to-one name="subCategoria" class="Servicios.SubCategoria"
+                column="id_subcategoria" />
+                
+                
     </class>
 </hibernate-mapping>

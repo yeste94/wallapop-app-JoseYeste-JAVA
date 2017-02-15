@@ -30,21 +30,25 @@ public class Main {
 		session.getTransaction().commit();
 		session.close();
 		*/
-		
 		/*
-		Usuario user=(Usuario)session.get(Usuario.class, "prueba@gmail.com");
-		System.out.println(user.getMail());
+		
+		Articulo user=(Articulo)session.get(Articulo.class, 1);
+		System.out.println(user.getNombre());
 		*/
 		
+		//Query query = session.createQuery("SELECT c FROM Categoria c WHERE c.id=(SELECT s.id FROM SubCategoria s WHERE s.nombre='teclados')");
 		
-		Query query = session.createQuery("SELECT p FROM Articulo p");
-		
-		 List<Articulo> listDatos = query.list();
-		//System.out.println(listDatos.size());
-		 for (Articulo datos : listDatos) {
-		     System.out.println(datos.getNombre());
-		     
+
+		 
+		 
+		 
+		 Query query = session.createQuery("SELECT c FROM Articulo c WHERE c.subCategoria.id='2'");
+		 List<Articulo> listDatos1 = query.list();
+		 
+		 for (Articulo datos : listDatos1) {
+				 System.out.println(datos.getNombre()); 
 		 }
+		 
 		 
 	}
 }
